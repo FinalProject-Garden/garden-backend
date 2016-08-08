@@ -24,4 +24,6 @@ Route.post('/login', 'UserController.login');
 Route.get('/admin', 'AdminController.index').middleware('auth')
 Route.get('/admin/plants', 'AdminController.plantIndex').middleware('auth')
 Route.post('/admin/plants', 'AdminController.plantStore').middleware('auth')
+Route.get('/admin/plants/:id', 'AdminController.plantShow').middleware('auth')
+Route.put('/admin/plants/:id/image', 'AdminController.updateImage').middleware('auth')
 
