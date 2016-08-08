@@ -6,7 +6,8 @@ const Hash = use('Hash');
 class UserController {
 
   * store (request, response) {
-    const user = request.only('email', 'password', 'github');
+    const user = request.all();
+    // const user = request.only('email', 'password');
     user.password = yield Hash.make(user.password);
     const newUser = yield User.create(user);
     return response.json(newUser.toJSON());
@@ -27,7 +28,7 @@ class UserController {
 
   * show (request, response) {
     return response.json(request.authUser);
-  }
+  }  
 
 }
 
