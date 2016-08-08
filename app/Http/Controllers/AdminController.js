@@ -26,6 +26,14 @@ class AdminController {
     }
   }
 
+  * plantIndex (request, response) {
+    const admin = request.authUser.attributes.admin;
+    if (admin) {
+      let plants = yield Plant.all();
+      yield response.json(plants.toJSON())
+    }
+  }
+
 }
 
 module.exports = AdminController

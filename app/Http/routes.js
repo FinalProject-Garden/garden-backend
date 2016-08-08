@@ -22,5 +22,6 @@ Route.post('/register', 'UserController.store');
 Route.post('/login', 'UserController.login');
 
 Route.get('/admin', 'AdminController.index').middleware('auth')
+Route.get('/admin/plants', 'AdminController.plantIndex').middleware('auth')
 Route.post('/admin/plants', 'AdminController.plantStore').middleware('auth')
 
