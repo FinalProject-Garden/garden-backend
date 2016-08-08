@@ -3,6 +3,7 @@
 const Helpers = use('Helpers')
 const User = use('App/Model/User')
 const Plant = use('App/Model/Plant')
+const _ = require('lodash')
 
 
 class AdminController {
@@ -40,6 +41,19 @@ class AdminController {
     if (admin) {
       let plant = yield Plant.findBy('id', request.param('id'));
       yield response.json(plant.toJSON());
+    }
+  }
+
+  * updatePlant (request, response) {
+    let plant = yield Plant.findBy('id', request.param('id'));
+    console.log(plant)
+    const admin = request.authUser.attributes.admin;
+    if (admin) {
+      console.log(plant)
+      let input = request.all()
+      plant = _.merge(plant, input);
+      yield plant.save()
+      response.json(plant.toJSON());
     }
   }
 
