@@ -20,10 +20,13 @@ const Route = use('Route')
 Route.on('/').render('welcome')
 Route.post('/register', 'UserController.store');
 Route.post('/login', 'UserController.login');
+Route.get('/plants', 'PlantController.index');
+Route.get('/plants/:id', 'PlantController.show');
 
 Route.get('/admin', 'AdminController.index').middleware('auth')
 Route.get('/admin/plants', 'AdminController.plantIndex').middleware('auth')
 Route.post('/admin/plants', 'AdminController.plantStore').middleware('auth')
 Route.get('/admin/plants/:id', 'AdminController.plantShow').middleware('auth')
+Route.put('/admin/plants/:id', 'AdminController.updatePlant').middleware('auth')
 Route.put('/admin/plants/:id/image', 'AdminController.updateImage').middleware('auth')
 
