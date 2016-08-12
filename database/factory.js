@@ -31,9 +31,13 @@ const Factory = use('Factory')
 Factory.blueprint('App/Model/User', () => {
   return {
   //   username: 'admin',
-    email: 'admin@admin.com',
+    email: 'admin@amd.com',
     password: 'password',
     admin: true
-
+  },{
+    email: 'blah@bcxvla.com',
+    password: 'blahblah',
+    admin: false
   }
+
 })
