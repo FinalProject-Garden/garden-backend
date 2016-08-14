@@ -21,6 +21,15 @@ class GardenController {
     response.json(gardens.toJSON())
   }
 
+  * show (request, response) {
+    try {
+      const garden = yield Garden.findOrFail('id', request.param('id'))
+      return response.json(garden.toJSON())
+    } catch (e) {
+      response.send('Unable to find garden with id ' + request.param('id'))
+    }
+  }
+
 
 }
 

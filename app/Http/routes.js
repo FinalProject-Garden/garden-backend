@@ -25,6 +25,7 @@ Route.get('/plants/:id', 'PlantController.show');
 Route.post('/gardens', 'GardenController.store').middleware('auth');
 Route.get('/gardens', 'GardenController.index').middleware('auth');
 Route.get('/gardens/:id', 'GardenController.show').middleware('auth');
+Route.get('/profile', 'ProfileController.index').middleware('auth');
 
 //admin
 Route.get('/admin', 'AdminController.index').middleware('auth')
