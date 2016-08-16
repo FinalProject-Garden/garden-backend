@@ -12,6 +12,10 @@ class Garden extends Lucid {
     return this.belongsTo('App/Model/User')
   }
 
+  garden_journals () {
+    return this.hasMany('App/Model/GardenJournal')
+  }
+
 }
 
 module.exports = Garden

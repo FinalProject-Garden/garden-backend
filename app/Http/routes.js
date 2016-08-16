@@ -26,6 +26,9 @@ Route.post('/gardens', 'GardenController.store').middleware('auth');
 Route.get('/gardens', 'GardenController.index').middleware('auth');
 Route.get('/gardens/:id', 'GardenController.show').middleware('auth');
 Route.get('/profile', 'ProfileController.index').middleware('auth');
+Route.post('/gardens/:id/journals', 'GardenJournalController.store').middleware('auth')
+Route.get('/gardens/:id/journals', 'GardenJournalController.index').middleware('auth')
+Route.put('/gardens/:garden_id/journals/:id', 'GardenJournalController.update').middleware('auth')
 
 //admin
 Route.get('/admin', 'AdminController.index').middleware('auth')
