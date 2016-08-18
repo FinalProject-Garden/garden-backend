@@ -1,7 +1,8 @@
 'use strict'
 
-const User = use('App/Model/User');
-const Hash = use('Hash');
+const User = use('App/Model/User'),
+      Hash = use('Hash'),
+      _ = require('lodash');
 
 class UserController {
 
@@ -28,7 +29,15 @@ class UserController {
 
   * show (request, response) {
     return response.json(request.authUser);
-  }  
+  } 
+
+  * update (request, response) {
+    let user = yield User.findBy('id', request.authUser.id)
+    const input = request.all();
+    user = _.merge(user, input);
+    yield user.save()
+    return response.json(user.toJSON())
+  }
 
 }
 

@@ -19,6 +19,7 @@ const Route = use('Route')
 
 Route.on('/').render('welcome')
 Route.post('/register', 'UserController.store');
+Route.post('/users', 'UserController.update').middleware('auth');
 Route.post('/login', 'UserController.login');
 Route.get('/plants', 'PlantController.index');
 Route.get('/plants/:id', 'PlantController.show');
