@@ -30,6 +30,12 @@ class GardenController {
     }
   }
 
+  * destroy (request, response) {
+    const garden = yield Garden.findBy('id', request.param('id'))
+    yield garden.delete()
+    response.json({success: true})
+  }
+
 
 }
 
