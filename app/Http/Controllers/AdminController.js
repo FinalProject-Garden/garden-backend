@@ -57,6 +57,18 @@ class AdminController {
     }
   }
 
+  * deletePlant (request, response) {
+    let plant = yield Plant.findBy('id', request.param('id'));
+    const admin = request.authUser.attributes.admin;
+    if (admin) {
+      yield plant.delete()
+      response.json({success: true})
+    } else {
+      response.json({error: true})
+    }
+
+  }
+
   * updateImage (request, response) {
     const image = request.file('image', {
       maxSize: '2mb',

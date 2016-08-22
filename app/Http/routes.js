@@ -31,6 +31,7 @@ Route.post('/gardens/:id/journals', 'GardenJournalController.store').middleware(
 Route.delete('/gardens/:id', 'GardenController.destroy').middleware('auth')
 Route.get('/gardens/:id/journals', 'GardenJournalController.index').middleware('auth')
 Route.put('/gardens/:garden_id/journals/:id', 'GardenJournalController.update').middleware('auth')
+Route.post('/gardens/:id/planner', 'GardenController.planner').middleware('auth')
 
 //admin
 Route.get('/admin', 'AdminController.index').middleware('auth')
@@ -38,5 +39,6 @@ Route.get('/admin/plants', 'AdminController.plantIndex').middleware('auth')
 Route.post('/admin/plants', 'AdminController.plantStore').middleware('auth')
 Route.get('/admin/plants/:id', 'AdminController.plantShow').middleware('auth')
 Route.put('/admin/plants/:id', 'AdminController.updatePlant').middleware('auth')
+Route.delete('/admin/plants/:id', 'AdminController.deletePlant').middleware('auth')
 Route.put('/admin/plants/:id/image', 'AdminController.updateImage').middleware('auth')
 
