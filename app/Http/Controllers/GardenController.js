@@ -1,7 +1,8 @@
 'use strict'
 
 const Garden = use('App/Model/Garden'),
-      User = use('App/Model/User');
+      User = use('App/Model/User'),
+      Space = use('App/Model/Space');
 
 
 
@@ -34,6 +35,20 @@ class GardenController {
     const garden = yield Garden.findBy('id', request.param('id'))
     yield garden.delete()
     response.json({success: true})
+  }
+
+  * planner (request, response) {
+    const garden = yield Garden.findBy('id', request.param('id'))
+    let input = request.all()
+    // input.garden_id = garden.id;
+    // let parsedInput = JSON.parse(input.data)
+    // console.log(parsedInput)
+    let a = JSON.stringify(input.data)
+    let b = JSON.parse(a)
+    console.log(typeof(b))
+    // let newSpace = yield Space.create(input)
+    // return response.json(newSpace.toJSON())
+
   }
 
 
