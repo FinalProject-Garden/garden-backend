@@ -4,8 +4,8 @@ const Lucid = use('Lucid')
 
 class Space extends Lucid {
 
-  plants () {
-    return this.belongsToMany('App/Model/Plant')
+  plant () {
+    return this.belongsTo('App/Model/Plant')
   }
 
   garden () {

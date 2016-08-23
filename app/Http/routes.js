@@ -26,6 +26,8 @@ Route.get('/plants/:id', 'PlantController.show');
 Route.post('/gardens', 'GardenController.store').middleware('auth');
 Route.get('/gardens', 'GardenController.index').middleware('auth');
 Route.get('/gardens/:id', 'GardenController.show').middleware('auth');
+Route.get('/gardens/:id/spaces', 'GardenSpaceController.index').middleware('auth');
+Route.put('/gardens/:id/spaces', 'GardenSpaceController.store').middleware('auth');
 Route.get('/profile', 'ProfileController.index').middleware('auth');
 Route.post('/gardens/:id/journals', 'GardenJournalController.store').middleware('auth')
 Route.delete('/gardens/:id', 'GardenController.destroy').middleware('auth')
