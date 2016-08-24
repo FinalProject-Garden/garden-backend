@@ -32,10 +32,12 @@ class GardenSpaceController {
   }
 
   * index (request, response) {
-    let gardenId = response.params('id');
-    let garden = yield Database.from('spaces').where('garden_id', gardenId);
-
-    return response.json(garden);
+    console.log(request.params);
+    let gardenId = request.params('id').id;
+    console.log("gardenId", gardenId)
+    let spaces = yield Database.from('spaces').where('garden_id', gardenId);
+    console.log("garden", spaces)
+    return response.json(spaces);
   }
 
 };
