@@ -1,3 +1,5 @@
+http://my-garden.surge.sh/#/ ( reload if the page does not load the first time.  The server is just sleeping )
+
 # AdonisJs Application
 
 This repo is the pre-configured project structure to be used for creating ambitious web servers using AdonisJs.
